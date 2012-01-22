@@ -1,0 +1,3 @@
+[submodule "vendor/mandango"]
+	path = vendor/mandango
+	url = https://github.com/mandango/mandango.git
