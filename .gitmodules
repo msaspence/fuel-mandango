@@ -1,3 +1,9 @@
 [submodule "vendor/mandango"]
 	path = vendor/mandango
 	url = https://github.com/mandango/mandango.git
+[submodule "vendor/mondator"]
+	path = vendor/mondator
+	url = https://github.com/mandango/mondator.git
+[submodule "vendor/mandango-behaviors"]
+	path = vendor/mandango-behaviors
+	url = https://github.com/mandango/mandango-behaviors.git
