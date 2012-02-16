@@ -66,7 +66,7 @@ class Mandango extends BaseMandango {
 			if (!empty($config['username']) && !empty($config['password'])) {
 				$server .= "{$config['username']}:{$config['password']}@";
 			}
-			$server .= "{$config['hostname']}:{$config['port']}";
+			$server .= "{$config['hostname']}:{$config['port']}/{$config['database']}";
 
 			$connection = new \Mandango\Connection($server, $config['database'], array(
 				'persistent' => true,
