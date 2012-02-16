@@ -68,7 +68,7 @@ class Mandango extends BaseMandango {
 			}
 			$server .= "{$config['hostname']}:{$config['port']}";
 
-			$connection = new \Mandango\Connection("mongodb://{$config['hostname']}:{$config['port']}", $config['database'], array(
+			$connection = new \Mandango\Connection($server, $config['database'], array(
 				'persistent' => true,
 			));
 
