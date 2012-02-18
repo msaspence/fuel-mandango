@@ -16,8 +16,8 @@ class Mandango extends BaseMandango {
 			$config = \Config::get('mongo.default');
 
 			$metadataFactory = new \metadatafactory();
-			P::i(APPPATH."/cache/mandango");
-			P::i(file_exists(APPPATH."/cache/mandango"));
+			\P::i(APPPATH."/cache/mandango");
+			\P::i(file_exists(APPPATH."/cache/mandango"));
 			$cache = new \Mandango\Cache\FilesystemCache(APPPATH."/cache/mandango");
 
 			if (\Config::get('mongo.profiling')) {
