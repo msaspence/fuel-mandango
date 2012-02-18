@@ -17,7 +17,7 @@ class Mandango extends BaseMandango {
 
 			$metadataFactory = new \metadatafactory();
 
-			$cache = new \FuelMandango\Cache\FilesystemCache(APPPATH."cache/mandango");
+			$cache = new \FuelMandango\Cache\ArrayCache(APPPATH."cache/mandango");
 
 			if (\Config::get('mongo.profiling')) {
 				$logger = function($query) {
