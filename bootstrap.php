@@ -22,6 +22,5 @@ Autoloader::add_namespaces(array(
 
 Autoloader::add_classes(array(
 	'FuelMandango\Mandango' => PKGPATH.'/fuel-mandango/classes/mandango.php',
-	'FuelMandango\Cache\FilesystemCache' => PKGPATH.'/fuel-mandango/classes/cache/filesystemcache.php',
 ));
 
