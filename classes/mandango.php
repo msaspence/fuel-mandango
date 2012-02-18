@@ -16,20 +16,26 @@ class Mandango extends BaseMandango {
 			$config = \Config::get('mongo.default');
 
 			$metadataFactory = new \metadatafactory();
-			$cache = new \Mandango\Cache\FilesystemCache(APPPATH."/cache/mandango");
+			$cache = new \Mandango\Cache\ArrayCache(APPPATH."/cache/mandango");
 
 			if (\Config::get('mongo.profiling')) {
 				$logger = function($query) {
 
 					$query_string = $query['database'];
 					$query_string .= ".";
-					$query_string .= $query['collection'];
-					$query_string .= ".";
+
+					if (!empty($query['collection'])) {
+						$query_string .= $query['collection'];
+						$query_string .= ".";
+					}
 
 					$query_string .= $query['type'];
 					$query_string .= "(";
 					if (!empty($query['query'])) {
-						$query_string .= json_encode($query['query']);
+						$query_string .= str_replace(",",", ",json_encode($query['query']));
+					}
+					if (!empty($query['data'])) {
+						$query_string .= str_replace(",",", ",json_encode($query['data']));
 					}
 					$query_string .= ")";
 
@@ -77,6 +83,11 @@ class Mandango extends BaseMandango {
 
 		}
 		return static::$instance;
+	}
+
+	public function command($command,$options=array())
+	{
+		$this->getDefaultConnection()->getMongoDB()->command($command,$options);
 	}
 
 
